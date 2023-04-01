@@ -11,7 +11,7 @@
 #include "../include/struct.hpp"
 void user_input(game *snake);
 void main_algo(game *snake);
-void draw_map(game *snake);
+void draw_map(game snake);
 
 void setup_main_struct(game *snake)
 {
@@ -34,7 +34,7 @@ int main(void)
     while (!snake.game_over) {
         user_input(&snake);
         main_algo(&snake);
-        draw_map(&snake);
+        draw_map(snake);
         usleep(100000);
     }
     return 0;
