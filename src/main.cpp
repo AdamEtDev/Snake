@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iomanip>
 #include <unistd.h>
+#include <string.h>
 #include "../include/struct.hpp"
 void user_input(game *snake);
 void main_algo(game *snake);
@@ -26,16 +27,23 @@ void setup_main_struct(game *snake)
     snake->score = 0;
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
     game snake;
+    if (argc != 2 || (strcmp(argv[1], "hardmode") != 0 && strcmp(argv[1], "basicmode") != 0)) {
+        std::cout << "Please enter the gamemod you want.\nUSAGE :: ./snake [hardmode || basicmode]" << std::endl;
+        return 84;
+    }
     setup_main_struct(&snake);
 
     while (!snake.game_over) {
         user_input(&snake);
         main_algo(&snake);
         draw_map(snake);
-        usleep(100000);
+        if (strcmp(argv[1], "hardmode") == 0)
+            usleep(60000);
+        else
+            usleep(100000);
     }
     return 0;
 }
