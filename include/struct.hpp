@@ -25,8 +25,8 @@
         int fruit_x;
         int fruit_y;
         int score;
-        int tail_x[100];
-        int tail_y[100];
+        int tail_x[200];
+        int tail_y[200];
         int length_tail;
         Direction dir;
     };
