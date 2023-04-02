@@ -44,8 +44,8 @@ void main_algo(game *snake)
             break;
     }
 
-    if (snake->x > snake->width - 4 || snake->x <= 0 ||
-    snake->y > snake->height - 2 || snake->y <= 0)
+    if (snake->x > snake->width - 3 || snake->x < 0 ||
+    snake->y > snake->height - 1 || snake->y < 0)
         snake->game_over = true;
     for (int i = 0; i < snake->length_tail; i += 1)
         if (snake->tail_x[i] == snake->x && snake->tail_y[i] == snake->y)
